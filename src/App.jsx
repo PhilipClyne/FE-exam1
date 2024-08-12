@@ -36,7 +36,7 @@ function App() {
             <Header />
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/game/:id" element={<GameDetail />} />
+              <Route path="/games/:id" element={<GameDetail />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="/games" element={<AllGames />} />
               <Route path="/payment" element={<Payment />} />
