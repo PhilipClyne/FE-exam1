@@ -66,13 +66,15 @@ const Header = () => {
                         className="text-blue-500 hover:underline"
                       >
                         {/* hiện image của game */}
-                        <img
-                          src={game.background_image}
-                          alt=""
-                          srcset=""
-                          className="w-[10%] h-[10%]"
-                        />
-                        {game.name}
+                        <div className="flex text-center">
+                          <img
+                            src={game.background_image}
+                            alt=""
+                            srcset=""
+                            className="w-[10%] h-[10%] "
+                          />
+                          <h1 className="my-auto mx-5 ">{game.name}</h1>
+                        </div>
                       </Link>
                     </li>
                   ))}
