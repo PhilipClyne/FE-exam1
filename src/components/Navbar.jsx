@@ -7,38 +7,39 @@ const Navbar = () => {
   const { theme, setTheme } = useContext(ThemeContext);
 
   return (
-    <nav className="fixed left-1/2 -translate-x-1/2 z-10 bg-white dark:bg-gray-800 shadow-lg rounded-b-full w-full p-4 sm:w-4/5 sm:justify-around sm:rounded-full flex flex-col sm:flex-row items-center justify-between">
-      <div className="flex items-center space-x-4">
-        <Link
-          to="/"
-          className="text-lg sm:text-xl font-semibold text-gray-800 dark:text-white"
-        >
-          Home
-        </Link>
-      </div>
+    <nav className="fixed top-0 left-0 right-0 z-20 bg-white dark:bg-gray-900 shadow-md rounded-b-lg p-2 sm:p-3 flex items-center justify-between">
+      <Link
+        to="/"
+        className="text-lg font-semibold text-gray-800 dark:text-white"
+      >
+        Home
+      </Link>
 
-      <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-8 mt-4 sm:mt-0">
+      <div className="flex items-center space-x-4 sm:space-x-6">
         <Link
           to="/contact"
-          className="text-base sm:text-lg text-gray-800 dark:text-white hover:underline"
+          className="text-sm sm:text-base text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
         >
           Contact Us
         </Link>
         <Link
           to="/games"
-          className="text-base sm:text-lg text-gray-800 dark:text-white hover:underline"
+          className="text-sm sm:text-base text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
         >
           Products
         </Link>
         <Link
           to="/cart"
-          className="text-base sm:text-lg text-gray-800 dark:text-white hover:underline"
+          className="text-sm sm:text-base text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
         >
           Cart
         </Link>
+      </div>
+
+      <div className="flex items-center space-x-2">
         {theme === "light" ? (
           <HiMoon
-            className="text-2xl sm:text-3xl text-gray-800 dark:text-white cursor-pointer"
+            className="text-xl sm:text-2xl text-gray-800 dark:text-white cursor-pointer transition-colors hover:text-gray-600 dark:hover:text-gray-300"
             onClick={() => {
               setTheme("dark");
               localStorage.setItem("theme", "dark");
@@ -46,7 +47,7 @@ const Navbar = () => {
           />
         ) : (
           <HiSun
-            className="text-2xl sm:text-3xl text-gray-800 dark:text-white cursor-pointer"
+            className="text-xl sm:text-2xl text-gray-800 dark:text-white cursor-pointer transition-colors hover:text-gray-600 dark:hover:text-gray-300"
             onClick={() => {
               setTheme("light");
               localStorage.setItem("theme", "light");

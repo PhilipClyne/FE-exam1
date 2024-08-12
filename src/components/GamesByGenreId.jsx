@@ -12,7 +12,7 @@ const GamesByGenreId = ({ gameList, selectedGenreName }) => {
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {gameList.map((game, index) => (
-          <Link to={`/game/${game.id}`} key={index}>
+          <Link to={`/games/${game.id}`} key={index}>
             <div className="bg-gray-600 p-3 rounded-lg pb-8 h-full hover:scale-110 duration-300 ease-in-out cursor-pointer">
               <img
                 src={game.background_image}

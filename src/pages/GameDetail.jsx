@@ -1,7 +1,6 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import GlobalApi from "../services/GlobalApi";
-import { CartContext } from "../context/CartContext";
 
 const GameDetail = () => {
   const { id } = useParams();
@@ -19,7 +18,7 @@ const GameDetail = () => {
     };
     fetchGameDetail();
   }, [id]);
-  // price không có nên cứ để là 59.99
+
   const handleAddToCart = () => {
     const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
     cartItems.push({
@@ -39,31 +38,37 @@ const GameDetail = () => {
   }
 
   return (
-    <div className="flex flex-col w-full max-w-4xl mx-auto p-6 min-h-screen bg-gray-100 dark:bg-slate-800 dark:text-white">
-      <h1 className="text-4xl font-bold mb-6 text-center">{game.name}</h1>
+    <div className="flex flex-col w-full max-w-3xl mx-auto p-4 sm:p-6 min-h-screen bg-gray-100 dark:bg-slate-800 dark:text-white">
+      <h1 className="text-3xl sm:text-4xl font-bold mb-4 sm:mb-6 text-center">
+        {game.name}
+      </h1>
       <img
         src={game.background_image || "https://via.placeholder.com/600x400"}
         alt={game.name}
-        className="w-full h-auto object-cover rounded-lg mb-6"
+        className="w-full h-auto object-cover rounded-lg mb-4 sm:mb-6"
       />
       <div
-        className={`text-lg leading-relaxed text-justify mb-4 overflow-hidden transition-max-height duration-300 ${
-          isExpanded ? "max-h-screen" : "max-h-32"
+        className={`text-base sm:text-lg leading-relaxed text-justify mb-4 overflow-hidden transition-max-height duration-300 ${
+          isExpanded ? "max-h-screen" : "max-h-36"
         }`}
       >
         {game.description_raw || "Description not available."}
       </div>
       <button
-        className="text-blue-600 dark:text-blue-400 hover:underline mb-6"
+        className="text-blue-600 dark:text-blue-400 hover:underline mb-4 sm:mb-6"
         onClick={toggleReadMore}
       >
         {isExpanded ? "Show Less" : "Read More"}
       </button>
-      <h2 className="text-2xl mb-2">Rating: {game.rating || "N/A"}</h2>
-      <h2 className="text-2xl mb-6">Released: {game.released || "N/A"}</h2>
+      <h2 className="text-xl sm:text-2xl mb-2">
+        Rating: {game.rating || "N/A"}
+      </h2>
+      <h2 className="text-xl sm:text-2xl mb-4 sm:mb-6">
+        Released: {game.released || "N/A"}
+      </h2>
       <button
         onClick={handleAddToCart}
-        className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+        className="px-4 sm:px-6 py-2 sm:py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
       >
         Add to Cart
       </button>
