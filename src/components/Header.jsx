@@ -4,6 +4,7 @@ import { HiMoon, HiOutlineMagnifyingGlass, HiSun } from "react-icons/hi2";
 import { ThemeContext } from "../context/ThemeContext";
 import { Link } from "react-router-dom";
 import Api from "../services/GlobalApi"; // Import your API functions
+import { HiX } from "react-icons/hi";
 
 const Header = () => {
   const [toggle, setToggle] = useState(false);
@@ -33,6 +34,10 @@ const Header = () => {
     } else {
       setSearchResults([]);
     }
+  };
+  const handleClearQuery = () => {
+    setSearchQuery("");
+    setSearchResults([]);
   };
 
   return (
@@ -83,6 +88,15 @@ const Header = () => {
                 <p className="py-2 px-4 text-gray-500">No results found</p>
               )}
             </div>
+          )}
+          {searchQuery && (
+            <button
+              onClick={handleClearQuery}
+              className="absolute right-2 p-1 text-gray-500 hover:text-gray-800"
+              aria-label="Clear search query"
+            >
+              <HiX className="text-lg" />
+            </button>
           )}
         </div>
         <div>
