@@ -17,7 +17,7 @@ const BannerGame = ({ gameList }) => {
       };
 
       updateBanner();
-      const intervalId = setInterval(updateBanner, 5000); // Change banner every 5 seconds
+      const intervalId = setInterval(updateBanner, 3000); // Change banner every 5 seconds
 
       return () => clearInterval(intervalId); // Cleanup on component unmount
     }

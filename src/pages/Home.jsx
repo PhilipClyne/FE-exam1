@@ -34,6 +34,7 @@ const Home = () => {
       <div className="flex justify-center items-start">
         <div className="xl:max-w-[1280px] w-full">
           <div className="grid grid-cols-4 px-8">
+            {/* chỉ hiện khi trong responsive cho đt  */}
             <div className="hidden md:block">
               <GenreList
                 genreID={(setGenreId) => getGameListByGenreId(setGenreId)}
@@ -43,8 +44,7 @@ const Home = () => {
             <div className="col-span-4 md:col-span-3 p-8">
               {allGameList?.length > 0 ? (
                 <div>
-                  <BannerGame gameList={allGameList} />{" "}
-                  {/* Pass the entire game list */}
+                  <BannerGame gameList={allGameList} />
                   <TredingGames gameList={allGameList} />
                   <GamesByGenreId
                     gameList={gameListByGenre}

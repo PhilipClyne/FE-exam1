@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 const TredingGames = ({ gameList }) => {
   useEffect(() => {
-    // console.log("Treding Games: ", gameList);
+    console.log("Treding Games: ", gameList);
   });
   return (
     <div className="mt-5 hidden md:block">

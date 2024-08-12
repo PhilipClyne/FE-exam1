@@ -6,7 +6,7 @@ import { CartContext } from "../context/CartContext";
 const GameDetail = () => {
   const { id } = useParams();
   const [game, setGame] = useState(null);
-  const [isExpanded, setIsExpanded] = useState(false); // State for "Read More"
+  const [isExpanded, setIsExpanded] = useState(false);
 
   useEffect(() => {
     const fetchGameDetail = async () => {
@@ -19,7 +19,7 @@ const GameDetail = () => {
     };
     fetchGameDetail();
   }, [id]);
-
+  // price không có nên cứ để là 59.99
   const handleAddToCart = () => {
     const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
     cartItems.push({

@@ -6,12 +6,9 @@ const Payment = () => {
   const { cart, clearCart } = useContext(CartContext);
   const navigate = useNavigate();
 
-  // Calculate the total price
   const totalPrice = cart.reduce((total, item) => total + item.price, 0);
 
   const handlePayment = () => {
-    // Implement payment logic here
-    // For now, we’ll just clear the cart and navigate to a confirmation page
     clearCart();
     navigate("/confirmation");
   };

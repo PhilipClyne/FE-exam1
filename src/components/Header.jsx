@@ -18,7 +18,7 @@ const Header = () => {
   const handleSearchChange = (e) => {
     const query = e.target.value;
     setSearchQuery(query);
-
+    // truy cứu dữ liệu được nhập tỏng input
     if (query) {
       Api.getAllGames
         .then((response) => {
@@ -54,15 +54,24 @@ const Header = () => {
             <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-full mt-2 bg-white shadow-lg rounded-lg overflow-hidden z-10">
               {searchResults.length > 0 ? (
                 <ul className="max-h-60 overflow-y-auto">
+                  {/* hiện các tìm kiếm gần giống */}
                   {searchResults.map((game) => (
                     <li
                       key={game.id}
                       className="py-2 px-4 hover:bg-gray-100 cursor-pointer"
                     >
+                      {/* navigate nó đến trang detail */}
                       <Link
                         to={`/games/${game.id}`}
                         className="text-blue-500 hover:underline"
                       >
+                        {/* hiện image của game */}
+                        <img
+                          src={game.background_image}
+                          alt=""
+                          srcset=""
+                          className="w-[10%] h-[10%]"
+                        />
                         {game.name}
                       </Link>
                     </li>
