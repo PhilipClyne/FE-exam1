@@ -41,7 +41,7 @@ const Header = () => {
         <Link to="/" className="w-1/5 h-1/5">
           <img src={Logo} alt="Logo" />
         </Link>
-        <div className="flex bg-slate-200 p-2 w-[60%] mx-5 rounded-full items-center">
+        <div className="flex bg-slate-200 p-2 w-[60%] mx-5 rounded-full items-center relative">
           <HiOutlineMagnifyingGlass />
           <input
             type="text"
@@ -50,6 +50,29 @@ const Header = () => {
             placeholder="Search Games"
             className="bg-transparent outline-none px-2 py-1 w-full"
           />
+          {searchQuery && (
+            <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-full mt-2 bg-white shadow-lg rounded-lg overflow-hidden z-10">
+              {searchResults.length > 0 ? (
+                <ul className="max-h-60 overflow-y-auto">
+                  {searchResults.map((game) => (
+                    <li
+                      key={game.id}
+                      className="py-2 px-4 hover:bg-gray-100 cursor-pointer"
+                    >
+                      <Link
+                        to={`/games/${game.id}`}
+                        className="text-blue-500 hover:underline"
+                      >
+                        {game.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="py-2 px-4 text-gray-500">No results found</p>
+              )}
+            </div>
+          )}
         </div>
         <div>
           {theme === "light" ? (
@@ -77,29 +100,6 @@ const Header = () => {
             </button>
           </Link>
         </div>
-        {searchQuery && (
-          <div className="absolute top-full left-0 w-[60%] mt-2 bg-white shadow-lg rounded-lg overflow-hidden z-10">
-            {searchResults.length > 0 ? (
-              <ul className="max-h-60 overflow-y-auto">
-                {searchResults.map((game) => (
-                  <li
-                    key={game.id}
-                    className="py-2 px-4 hover:bg-gray-100 cursor-pointer"
-                  >
-                    <Link
-                      to={`/games/${game.id}`}
-                      className="text-blue-500 hover:underline"
-                    >
-                      {game.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <p className="py-2 px-4 text-gray-500">No results found</p>
-            )}
-          </div>
-        )}
       </div>
     </div>
   );
