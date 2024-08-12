@@ -23,17 +23,17 @@ function App() {
       localStorage.getItem("theme") ? localStorage.getItem("theme") : "dark"
     );
   }, []);
+
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
       <CartProvider>
         <div
           className={`${theme} 
-          ${theme == "dark" ? "bg-black" : null} `}
+          ${theme === "dark" ? "bg-black" : "bg-white"} `}
         >
-          <Navbar />
-
-          <Header />
           <Router>
+            <Navbar />
+            <Header />
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/game/:id" element={<GameDetail />} />

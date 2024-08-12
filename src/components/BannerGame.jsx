@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const BannerGame = ({ gameList }) => {
   const [currentBanner, setCurrentBanner] = useState(null);
@@ -34,11 +35,11 @@ const BannerGame = ({ gameList }) => {
             <h2 className="text-[24px] text-white font-bold">
               {currentBanner.name}
             </h2>
-            <a href="/games">
+            <Link to="/games">
               <button className="bg-orange-700 text-white px-2 p-1 rounded-lg">
                 Play Now
               </button>
-            </a>
+            </Link>
           </div>
           <img
             src={currentBanner.background_image}

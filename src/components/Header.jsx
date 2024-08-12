@@ -14,9 +14,9 @@ const Header = () => {
   return (
     <div className="flex items-center justify-center p-3">
       <div className="flex items-center justify-center mt-20 ">
-        <a href="/" className="w-1/5 h-1/5">
+        <Link to="/" className="w-1/5 h-1/5">
           <img src={Logo} alt="" />
-        </a>
+        </Link>
         <div className="flex bg-slate-200 p-2 w-[60%] mx-5 rounded-full items-center">
           <HiOutlineMagnifyingGlass />
           <input
@@ -45,11 +45,11 @@ const Header = () => {
           )}
         </div>
         <div className="px-10">
-          <a href="/">
+          <Link to="/">
             <button className="px-4 py-2 bg-slate-600 text-white rounded-full hover:bg-blue-700 transition-colors">
               Back
             </button>
-          </a>
+          </Link>
         </div>
       </div>
     </div>
